@@ -3,7 +3,9 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
 
-  def self.same_director director
+  def self.has_director director
+    return nil if director.blank? or director.nil?
     Movie.where(:director => director)
   end
+
 end
